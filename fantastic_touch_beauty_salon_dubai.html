@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fantastic Touch Beauty Salon | Al Barsha, Dubai</title>
+    <meta name="description" content="Fantastic Touch Beauty Salon located in Al Barsha, Dubai near Mall of the Emirates. Experience exceptional salon care and hair styling.">
+
+    <!-- Google Fonts: Cormorant Garamond (Luxury Serif) & Plus Jakarta Sans (Clean Modern Sans) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome for Luxury Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: '#D6B879',
+                        'gold-light': '#E5CFA0',
+                        'gold-dark': '#B89856',
+                        ivory: '#F7F1E7',
+                        'deep-black': '#171513',
+                        charcoal: '#292725',
+                        'pure-white': '#FFFFFF',
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <style>
+        :root {
+            --champagne-gold: #D6B879;
+            --ivory-cream: #F7F1E7;
+            --deep-black: #171513;
+            --pure-white: #FFFFFF;
+            --dark-charcoal: #292725;
+        }
+
+        body {
+            background-color: var(--ivory-cream);
+            color: var(--deep-black);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, .font-luxury {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--deep-black);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--champagne-gold);
+            border-radius: 4px;
+        }
+
+        .border-gold-subtle {
+            border-color: rgba(214, 184, 121, 0.35);
+        }
+
+        .btn-gold {
+            background-color: var(--champagne-gold);
+            color: var(--deep-black);
+            transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-gold:hover {
+            background-color: #E2C78E;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(214, 184, 121, 0.35);
+        }
+
+        .btn-outline-gold {
+            border: 1px solid var(--champagne-gold);
+            color: var(--champagne-gold);
+            transition: all 0.35s ease;
+        }
+        .btn-outline-gold:hover {
+            background-color: var(--champagne-gold);
+            color: var(--deep-black);
+            transform: translateY(-2px);
+        }
+
+        .service-card {
+            transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px -15px rgba(23, 21, 19, 0.1);
+            border-color: var(--champagne-gold);
+        }
+
+        .gallery-item img {
+            transition: transform 0.7s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        .gallery-item:hover img {
+            transform: scale(1.06);
+        }
+
+        body.edit-mode [contenteditable="true"] {
+            outline: 1px dashed #D6B879;
+            background-color: rgba(214, 184, 121, 0.08);
+            padding: 2px 6px;
+            border-radius: 4px;
+            cursor: text;
+        }
+
+        input[type="date"]::-webkit-calendar-picker-indicator,
+        input[type="time"]::-webkit-calendar-picker-indicator {
+            cursor: pointer;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-gold selection:text-deep-black">
+
+    <!-- ==================== NAVIGATION BAR ==================== -->
+    <header id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-deep-black/95 backdrop-blur-md border-b border-gold-subtle transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20 md:h-24">
+                
+                <a href="#home" class="flex flex-col group">
+                    <span class="font-luxury text-2xl sm:text-3xl font-semibold tracking-wider text-pure-white group-hover:text-gold transition-colors">
+                        FANTASTIC TOUCH
+                    </span>
+                    <span class="text-[10px] sm:text-xs uppercase tracking-[0.32em] text-gold font-medium -mt-1">
+                        Beauty Salon &bull; Dubai
+                    </span>
+                </a>
+
+                <nav class="hidden lg:flex items-center space-x-8">
+                    <a href="#home" class="text-sm uppercase tracking-widest text-ivory/90 hover:text-gold transition-colors">Home</a>
+                    <a href="#about" class="text-sm uppercase tracking-widest text-ivory/90 hover:text-gold transition-colors">About</a>
+                    <a href="#services" class="text-sm uppercase tracking-widest text-ivory/90 hover:text-gold transition-colors">Services</a>
+                    <a href="#gallery" class="text-sm uppercase tracking-widest text-ivory/90 hover:text-gold transition-colors">Gallery</a>
+                    <a href="#reviews" class="text-sm uppercase tracking-widest text-ivory/90 hover:text-gold transition-colors">Reviews</a>
+                    <a href="#contact" class="text-sm uppercase tracking-widest text-ivory/90 hover:text-gold transition-colors">Contact</a>
+                </nav>
+
+                <div class="flex items-center space-x-3">
+                    <a href="#booking" class="hidden sm:inline-flex items-center justify-center px-6 py-2.5 rounded-full text-xs uppercase tracking-widest font-semibold btn-gold">
+                        Book Appointment
+                    </a>
+
+                    <button id="mobile-menu-btn" aria-label="Toggle Menu" class="lg:hidden p-2.5 rounded-lg text-ivory hover:text-gold focus:outline-none border border-gold-subtle">
+                        <i class="fa-solid fa-bars text-xl" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden lg:hidden bg-deep-black border-b border-gold-subtle px-6 pt-4 pb-8 space-y-4">
+            <a href="#home" class="mobile-link block py-2 text-sm uppercase tracking-widest text-ivory hover:text-gold border-b border-charcoal">Home</a>
+            <a href="#about" class="mobile-link block py-2 text-sm uppercase tracking-widest text-ivory hover:text-gold border-b border-charcoal">About</a>
+            <a href="#services" class="mobile-link block py-2 text-sm uppercase tracking-widest text-ivory hover:text-gold border-b border-charcoal">Services</a>
+            <a href="#gallery" class="mobile-link block py-2 text-sm uppercase tracking-widest text-ivory hover:text-gold border-b border-charcoal">Gallery</a>
+            <a href="#reviews" class="mobile-link block py-2 text-sm uppercase tracking-widest text-ivory hover:text-gold border-b border-charcoal">Reviews</a>
+            <a href="#contact" class="mobile-link block py-2 text-sm uppercase tracking-widest text-ivory hover:text-gold border-b border-charcoal">Contact</a>
+            <div class="pt-3">
+                <a href="#booking" class="mobile-link block w-full text-center py-3.5 rounded-full text-xs uppercase tracking-widest font-semibold btn-gold">
+                    Book Appointment
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <section id="home" class="relative min-h-[90vh] bg-deep-black text-pure-white pt-24 flex items-center justify-center overflow-hidden">
+        <div class="absolute top-1/4 -left-32 w-96 h-96 bg-gold/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-10 right-0 w-80 h-80 bg-gold/5 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24 w-full z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-6 space-y-8 text-left">
+                    <div class="hero-animate inline-flex items-center space-x-2.5 px-4.5 py-2 rounded-full border border-gold-subtle bg-charcoal/60">
+                        <span class="w-2 h-2 rounded-full bg-gold"></span>
+                        <span class="text-xs uppercase tracking-[0.28em] text-gold font-medium">Al Barsha First, Dubai</span>
+                    </div>
+
+                    <h1 class="hero-animate font-luxury text-4xl sm:text-5xl lg:text-6xl font-semibold leading-[1.1] text-pure-white">
+                        Discover Your Beauty, <span class="text-gold italic font-normal">Experience the Difference.</span>
+                    </h1>
+
+                    <p class="hero-animate text-base sm:text-lg text-ivory/80 max-w-xl leading-relaxed font-light">
+                        Your Beauty, Our Passion – Experience Exceptional Salon Care in Dubai. Step into an atmosphere of refined elegance near Mall of the Emirates.
+                    </p>
+
+                    <div class="hero-animate flex flex-col sm:flex-row items-center gap-4 pt-2">
+                        <a href="#booking" class="w-full sm:w-auto px-8 py-4 rounded-full text-xs sm:text-sm uppercase tracking-widest font-semibold btn-gold text-center">
+                            Book Your Appointment
+                        </a>
+                        <a href="#services" class="w-full sm:w-auto px-8 py-4 rounded-full text-xs sm:text-sm uppercase tracking-widest font-medium btn-outline-gold text-center">
+                            Explore Our Services
+                        </a>
+                    </div>
+
+                    <div class="hero-animate pt-6 border-t border-charcoal/80 flex flex-wrap items-center gap-6 text-xs sm:text-sm text-ivory/70">
+                        <div class="flex items-center space-x-2">
+                            <i class="fa-solid fa-star text-gold"></i>
+                            <span class="text-pure-white font-medium">4.8 / 5</span>
+                            <span>(264 Google Reviews)</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fa-regular fa-clock text-gold"></i>
+                            <span>10:00 AM – 10:30 PM</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-6 hero-animate">
+                    <div class="relative rounded-3xl overflow-hidden border-2 border-gold-subtle shadow-2xl aspect-[4/3] bg-charcoal">
+                        <img src="https://instasize.com/api/image/0a9946f97ffde9a27ed79767820e20aa05dcb9152842f23d8f6fda1cc9cdd708.png" 
+                             alt="Fantastic Touch Beauty Salon Hero Scene" 
+                             class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-deep-black/60 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-deep-black/80 backdrop-blur-md border border-gold-subtle flex items-center justify-between">
+                            <div>
+                                <p class="font-luxury text-xl font-semibold text-pure-white">Fantastic Touch Salon</p>
+                                <p class="text-xs text-gold uppercase tracking-wider">Al Barsha First, Dubai</p>
+                            </div>
+                            <a href="#booking" class="px-4 py-2 rounded-xl text-xs uppercase tracking-wider font-semibold btn-gold">
+                                Reserve
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== ABOUT US SECTION ==================== -->
+    <section id="about" class="py-20 lg:py-28 bg-ivory">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+                
+                <div class="lg:col-span-6 reveal-section">
+                    <div class="grid grid-cols-12 gap-4 items-center">
+                        <div class="col-span-12 sm:col-span-10 sm:col-start-2">
+                            <div class="relative rounded-2xl overflow-hidden shadow-xl border border-gold-subtle aspect-[4/3] bg-charcoal">
+                                <img src="https://instasize.com/api/image/43af29d3e91333c5b289e4042252c477f0f0dc57f1a20c48d3af9c660ca7fd9c.png" 
+                                     alt="Fantastic Touch Beauty Salon Hairstyling Environment" 
+                                     class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-6 space-y-6 reveal-section">
+                    <div class="inline-block">
+                        <span class="text-xs uppercase tracking-[0.28em] text-gold-dark font-semibold">About Our Salon</span>
+                        <div class="h-0.5 w-12 bg-gold mt-1.5"></div>
+                    </div>
+
+                    <h2 class="font-luxury text-3xl sm:text-4xl lg:text-5xl font-semibold text-deep-black leading-tight">
+                        Refined Beauty Care in the Heart of Al Barsha, Dubai
+                    </h2>
+
+                    <p class="text-charcoal/90 leading-relaxed text-base sm:text-lg">
+                        Welcome to <strong class="font-semibold text-deep-black">Fantastic Touch Beauty Salon</strong>, a serene and stylish beauty destination conveniently located in Office 505, 2nd Street, Al Barsha First—just moments away from Mall of the Emirates.
+                    </p>
+
+                    <p class="text-charcoal/80 leading-relaxed text-base">
+                        Designed to provide a welcoming and comfortable environment, our salon focuses on attentive, personalized care tailored to your individual style and preferences. Every visit is dedicated to helping you feel refreshed, confident, and beautifully cared for in a calm, professional setting.
+                    </p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-3">
+                        <div class="p-4 rounded-xl bg-pure-white border border-gold-subtle flex items-start space-x-3.5">
+                            <div class="w-10 h-10 rounded-full bg-ivory flex items-center justify-center text-gold-dark shrink-0">
+                                <i class="fa-solid fa-spa"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-luxury text-xl font-semibold text-deep-black">Welcoming Atmosphere</h3>
+                                <p class="text-xs text-charcoal/75 mt-1 leading-relaxed">A clean, relaxing interior crafted for your comfort and peace of mind.</p>
+                            </div>
+                        </div>
+
+                        <div class="p-4 rounded-xl bg-pure-white border border-gold-subtle flex items-start space-x-3.5">
+                            <div class="w-10 h-10 rounded-full bg-ivory flex items-center justify-center text-gold-dark shrink-0">
+                                <i class="fa-solid fa-heart"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-luxury text-xl font-semibold text-deep-black">Customer-Focused Care</h3>
+                                <p class="text-xs text-charcoal/75 mt-1 leading-relaxed">Thoughtful consultations tailored to your personal beauty goals.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-4">
+                        <a href="#booking" class="inline-flex items-center space-x-2 px-7 py-3.5 rounded-full text-xs uppercase tracking-widest font-semibold btn-gold">
+                            <span>Schedule Your Visit</span>
+                            <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== OUR SERVICES SECTION ==================== -->
+    <section id="services" class="py-20 lg:py-28 bg-pure-white border-y border-gold-subtle">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto space-y-4 reveal-section">
+                <span class="text-xs uppercase tracking-[0.28em] text-gold-dark font-semibold">Curated Salon Menu</span>
+                <h2 class="font-luxury text-3xl sm:text-4xl lg:text-5xl font-semibold text-deep-black">
+                    Our Services
+                </h2>
+                <p class="text-charcoal/80 text-sm sm:text-base leading-relaxed">
+                    Explore our beauty and hair-care service categories below. Service titles, descriptions, and pricing are customizable to reflect your exact salon menu.
+                </p>
+
+                <div class="pt-2 flex items-center justify-center gap-3">
+                    <button id="toggle-edit-services" type="button" class="inline-flex items-center space-x-2 px-4 py-2 rounded-full text-xs uppercase tracking-wider border border-gold text-deep-black hover:bg-ivory transition-colors">
+                        <i class="fa-solid fa-pen-to-square text-gold-dark"></i>
+                        <span id="edit-services-label">Enable Menu Editing</span>
+                    </button>
+                    <button id="reset-services-btn" type="button" class="hidden inline-flex items-center space-x-1.5 px-4 py-2 rounded-full text-xs uppercase tracking-wider bg-charcoal text-ivory hover:bg-deep-black transition-colors">
+                        <i class="fa-solid fa-rotate-left"></i>
+                        <span>Reset Defaults</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-14">
+                
+                <article class="service-card reveal-section rounded-2xl bg-ivory border border-gold-subtle overflow-hidden flex flex-col justify-between">
+                    <div>
+                        <div class="h-44 bg-deep-black relative flex items-center justify-center overflow-hidden">
+                            <div class="absolute inset-0 bg-gradient-to-br from-charcoal to-deep-black"></div>
+                            <div class="relative z-10 text-center p-4">
+                                <div class="w-14 h-14 mx-auto rounded-full border border-gold/50 flex items-center justify-center text-gold mb-2">
+                                    <i class="fa-solid fa-wand-magic-sparkles text-xl"></i>
+                                </div>
+                                <span class="text-[11px] uppercase tracking-[0.25em] text-gold/80">Category 01</span>
+                            </div>
+                        </div>
+                        <div class="p-6 sm:p-7 space-y-3">
+                            <div class="flex items-baseline justify-between gap-2">
+                                <h3 class="editable-service font-luxury text-2xl font-semibold text-deep-black" data-key="srv1_title">Hair Styling</h3>
+                                <span class="editable-service text-xs font-semibold uppercase tracking-wider text-gold-dark bg-pure-white px-3 py-1 rounded-full border border-gold-subtle shrink-0" data-key="srv1_price">Price on Inquiry</span>
+                            </div>
+                            <p class="editable-service text-sm text-charcoal/80 leading-relaxed" data-key="srv1_desc">
+                                Blow-dry styling, soft waves, sleek finishes, and occasion styling tailored to complement your look and hair texture.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="px-6 sm:px-7 pb-6 pt-2">
+                        <button type="button" onclick="selectServiceAndScroll('Hair Styling')" class="w-full py-3 rounded-xl text-xs uppercase tracking-widest font-semibold border border-deep-black text-deep-black hover:bg-deep-black hover:text-gold transition-colors">
+                            Inquire About Service
+                        </button>
+                    </div>
+                </article>
+
+                <article class="service-card reveal-section rounded-2xl bg-ivory border border-gold-subtle overflow-hidden flex flex-col justify-between">
+                    <div>
+                        <div class="h-44 bg-deep-black relative flex items-center justify-center overflow-hidden">
+                            <div class="absolute inset-0 bg-gradient-to-br from-charcoal to-deep-black"></div>
+                            <div class="relative z-10 text-center p-4">
+                                <div class="w-14 h-14 mx-auto rounded-full border border-gold/50 flex items-center justify-center text-gold mb-2">
+                                    <i class="fa-solid fa-scissors text-xl"></i>
+                                </div>
+                                <span class="text-[11px] uppercase tracking-[0.25em] text-gold/80">Category 02</span>
+                            </div>
+                        </div>
+                        <div class="p-6 sm:p-7 space-y-3">
+                            <div class="flex items-baseline justify-between gap-2">
+                                <h3 class="editable-service font-luxury text-2xl font-semibold text-deep-black" data-key="srv2_title">Hair Cutting</h3>
+                                <span class="editable-service text-xs font-semibold uppercase tracking-wider text-gold-dark bg-pure-white px-3 py-1 rounded-full border border-gold-subtle shrink-0" data-key="srv2_price">Price on Inquiry</span>
+                            </div>
+                            <p class="editable-service text-sm text-charcoal/80 leading-relaxed" data-key="srv2_desc">
+                                Precision trims, layered cuts, and fresh restyling crafted with attention to face shape, movement, and easy daily maintenance.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="px-6 sm:px-7 pb-6 pt-2">
+                        <button type="button" onclick="selectServiceAndScroll('Hair Cutting')" class="w-full py-3 rounded-xl text-xs uppercase tracking-widest font-semibold border border-deep-black text-deep-black hover:bg-deep-black hover:text-gold transition-colors">
+                            Inquire About Service
+                        </button>
+                    </div>
+                </article>
+
+                <article class="service-card reveal-section rounded-2xl bg-ivory border border-gold-subtle overflow-hidden flex flex-col justify-between">
+                    <div>
+                        <div class="h-44 bg-deep-black relative flex items-center justify-center overflow-hidden">
+                            <div class="absolute inset-0 bg-gradient-to-br from-charcoal to-deep-black"></div>
+                            <div class="relative z-10 text-center p-4">
+                                <div class="w-14 h-14 mx-auto rounded-full border border-gold/50 flex items-center justify-center text-gold mb-2">
+                                    <i class="fa-solid fa-palette text-xl"></i>
+                                </div>
+                                <span class="text-[11px] uppercase tracking-[0.25em] text-gold/80">Category 03</span>
+                            </div>
+                        </div>
+                        <div class="p-6 sm:p-7 space-y-3">
+                            <div class="flex items-baseline justify-between gap-2">
+                                <h3 class="editable-service font-luxury text-2xl font-semibold text-deep-black" data-key="srv3_title">Hair Coloring</h3>
+                                <span class="editable-service text-xs font-semibold uppercase tracking-wider text-gold-dark bg-pure-white px-3 py-1 rounded-full border border-gold-subtle shrink-0" data-key="srv3_price">Price on Inquiry</span>
+                            </div>
+                            <p class="editable-service text-sm text-charcoal/80 leading-relaxed" data-key="srv3_desc">
+                                Root touch-ups, full color applications, highlights, and dimensional tones selected during your personalized consultation.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="px-6 sm:px-7 pb-6 pt-2">
+                        <button type="button" onclick="selectServiceAndScroll('Hair Coloring')" class="w-full py-3 rounded-xl text-xs uppercase tracking-widest font-semibold border border-deep-black text-deep-black hover:bg-deep-black hover:text-gold transition-colors">
+                            Inquire About Service
+                        </button>
+                    </div>
+                </article>
+
+                <article class="service-card reveal-section rounded-2xl bg-ivory border border-gold-subtle overflow-hidden flex flex-col justify-between">
+                    <div>
+                        <div class="h-44 bg-deep-black relative flex items-center justify-center overflow-hidden">
+                            <div class="absolute inset-0 bg-gradient-to-br from-charcoal to-deep-black"></div>
+                            <div class="relative z-10 text-center p-4">
+                                <div class="w-14 h-14 mx-auto rounded-full border border-gold/50 flex items-center justify-center text-gold mb-2">
+                                    <i class="fa-solid fa-droplet text-xl"></i>
+                                </div>
+                                <span class="text-[11px] uppercase tracking-[0.25em] text-gold/80">Category 04</span>
+                            </div>
+                        </div>
+                        <div class="p-6 sm:p-7 space-y-3">
+                            <div class="flex items-baseline justify-between gap-2">
+                                <h3 class="editable-service font-luxury text-2xl font-semibold text-deep-black" data-key="srv4_title">Hair Treatments</h3>
+                                <span class="editable-service text-xs font-semibold uppercase tracking-wider text-gold-dark bg-pure-white px-3 py-1 rounded-full border border-gold-subtle shrink-0" data-key="srv4_price">Price on Inquiry</span>
+                            </div>
+                            <p class="editable-service text-sm text-charcoal/80 leading-relaxed" data-key="srv4_desc">
+                                Nourishing masks, deep hydration rituals, and restorative hair treatments designed to support smoothness and shine.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="px-6 sm:px-7 pb-6 pt-2">
+                        <button type="button" onclick="selectServiceAndScroll('Hair Treatments')" class="w-full py-3 rounded-xl text-xs uppercase tracking-widest font-semibold border border-deep-black text-deep-black hover:bg-deep-black hover:text-gold transition-colors">
+                            Inquire About Service
+                        </button>
+                    </div>
+                </article>
+
+                <article class="service-card reveal-section rounded-2xl bg-ivory border border-gold-subtle overflow-hidden flex flex-col justify-between">
+                    <div>
+                        <div class="h-44 bg-deep-black relative flex items-center justify-center overflow-hidden">
+                            <div class="absolute inset-0 bg-gradient-to-br from-charcoal to-deep-black"></div>
+                            <div class="relative z-10 text-center p-4">
+                                <div class="w-14 h-14 mx-auto rounded-full border border-gold/50 flex items-center justify-center text-gold mb-2">
+                                    <i class="fa-solid fa-leaf text-xl"></i>
+                                </div>
+                                <span class="text-[11px] uppercase tracking-[0.25em] text-gold/80">Category 05</span>
+                            </div>
+                        </div>
+                        <div class="p-6 sm:p-7 space-y-3">
+                            <div class="flex items-baseline justify-between gap-2">
+                                <h3 class="editable-service font-luxury text-2xl font-semibold text-deep-black" data-key="srv5_title">Hair Care</h3>
+                                <span class="editable-service text-xs font-semibold uppercase tracking-wider text-gold-dark bg-pure-white px-3 py-1 rounded-full border border-gold-subtle shrink-0" data-key="srv5_price">Price on Inquiry</span>
+                            </div>
+                            <p class="editable-service text-sm text-charcoal/80 leading-relaxed" data-key="srv5_desc">
+                                Gentle hair wash, scalp care, and conditioning routines to keep your hair healthy, soft, and manageable.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="px-6 sm:px-7 pb-6 pt-2">
+                        <button type="button" onclick="selectServiceAndScroll('Hair Care')" class="w-full py-3 rounded-xl text-xs uppercase tracking-widest font-semibold border border-deep-black text-deep-black hover:bg-deep-black hover:text-gold transition-colors">
+                            Inquire About Service
+                        </button>
+                    </div>
+                </article>
+
+                <article class="service-card reveal-section rounded-2xl bg-ivory border border-gold-subtle overflow-hidden flex flex-col justify-between">
+                    <div>
+                        <div class="h-44 bg-deep-black relative flex items-center justify-center overflow-hidden">
+                            <div class="absolute inset-0 bg-gradient-to-br from-charcoal to-deep-black"></div>
+                            <div class="relative z-10 text-center p-4">
+                                <div class="w-14 h-14 mx-auto rounded-full border border-gold/50 flex items-center justify-center text-gold mb-2">
+                                    <i class="fa-solid fa-sparkles text-xl"></i>
+                                </div>
+                                <span class="text-[11px] uppercase tracking-[0.25em] text-gold/80">Category 06</span>
+                            </div>
+                        </div>
+                        <div class="p-6 sm:p-7 space-y-3">
+                            <div class="flex items-baseline justify-between gap-2">
+                                <h3 class="editable-service font-luxury text-2xl font-semibold text-deep-black" data-key="srv6_title">Other Beauty Services</h3>
+                                <span class="editable-service text-xs font-semibold uppercase tracking-wider text-gold-dark bg-pure-white px-3 py-1 rounded-full border border-gold-subtle shrink-0" data-key="srv6_price">Price on Inquiry</span>
+                            </div>
+                            <p class="editable-service text-sm text-charcoal/80 leading-relaxed" data-key="srv6_desc">
+                                Additional beauty and personal grooming services available upon consultation. Contact us directly to confirm availability.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="px-6 sm:px-7 pb-6 pt-2">
+                        <button type="button" onclick="selectServiceAndScroll('Other Beauty Services')" class="w-full py-3 rounded-xl text-xs uppercase tracking-widest font-semibold border border-deep-black text-deep-black hover:bg-deep-black hover:text-gold transition-colors">
+                            Inquire About Service
+                        </button>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== WHY CHOOSE US SECTION ==================== -->
+    <section class="py-20 lg:py-24 bg-deep-black text-pure-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto space-y-3 mb-14 reveal-section">
+                <span class="text-xs uppercase tracking-[0.28em] text-gold font-medium">The Fantastic Touch Standard</span>
+                <h2 class="font-luxury text-3xl sm:text-4xl lg:text-5xl font-semibold text-pure-white">
+                    Why Choose Us
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="reveal-section p-7 rounded-2xl bg-charcoal/70 border border-gold-subtle hover:border-gold transition-colors space-y-4">
+                    <div class="w-12 h-12 rounded-xl bg-deep-black border border-gold/40 flex items-center justify-center text-gold text-lg">
+                        <i class="fa-solid fa-couch"></i>
+                    </div>
+                    <h3 class="font-luxury text-2xl font-semibold text-pure-white">Welcoming Environment</h3>
+                    <p class="text-sm text-ivory/75 leading-relaxed">
+                        A serene, spotless, and thoughtfully arranged salon space designed to make you feel at ease from the moment you arrive.
+                    </p>
+                </div>
+
+                <div class="reveal-section p-7 rounded-2xl bg-charcoal/70 border border-gold-subtle hover:border-gold transition-colors space-y-4">
+                    <div class="w-12 h-12 rounded-xl bg-deep-black border border-gold/40 flex items-center justify-center text-gold text-lg">
+                        <i class="fa-solid fa-user-check"></i>
+                    </div>
+                    <h3 class="font-luxury text-2xl font-semibold text-pure-white">Customer-Focused Care</h3>
+                    <p class="text-sm text-ivory/75 leading-relaxed">
+                        We listen attentively to your preferences and offer personalized recommendations tailored to your individual beauty needs.
+                    </p>
+                </div>
+
+                <div class="reveal-section p-7 rounded-2xl bg-charcoal/70 border border-gold-subtle hover:border-gold transition-colors space-y-4">
+                    <div class="w-12 h-12 rounded-xl bg-deep-black border border-gold/40 flex items-center justify-center text-gold text-lg">
+                        <i class="fa-solid fa-map-location-dot"></i>
+                    </div>
+                    <h3 class="font-luxury text-2xl font-semibold text-pure-white">Prime Al Barsha Location</h3>
+                    <p class="text-sm text-ivory/75 leading-relaxed">
+                        Conveniently situated at Office 505, 2nd Street in Al Barsha First, right near Mall of the Emirates for effortless access.
+                    </p>
+                </div>
+
+                <div class="reveal-section p-7 rounded-2xl bg-charcoal/70 border border-gold-subtle hover:border-gold transition-colors space-y-4">
+                    <div class="w-12 h-12 rounded-xl bg-deep-black border border-gold/40 flex items-center justify-center text-gold text-lg">
+                        <i class="fa-solid fa-sparkles"></i>
+                    </div>
+                    <h3 class="font-luxury text-2xl font-semibold text-pure-white">Hair &amp; Beauty Care</h3>
+                    <p class="text-sm text-ivory/75 leading-relaxed">
+                        Dedicated hair styling, cutting, coloring, and nourishing hair-care treatments delivered with care and precision.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== APPOINTMENT BOOKING (WHATSAPP INTEGRATION) ==================== -->
+    <section id="booking" class="py-20 lg:py-28 bg-ivory">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="rounded-3xl bg-pure-white border border-gold-subtle shadow-xl overflow-hidden grid grid-cols-1 lg:grid-cols-12">
+                
+                <div class="lg:col-span-5 bg-deep-black text-pure-white p-8 sm:p-10 lg:p-12 flex flex-col justify-between space-y-8">
+                    <div class="space-y-4">
+                        <span class="text-xs uppercase tracking-[0.28em] text-gold font-medium">Direct Reservations</span>
+                        <h2 class="font-luxury text-3xl sm:text-4xl font-semibold leading-tight">
+                            Book Your Salon Appointment
+                        </h2>
+                        <p class="text-sm text-ivory/80 leading-relaxed">
+                            Complete your preferred appointment details and send your inquiry directly to our team via WhatsApp for prompt confirmation.
+                        </p>
+                    </div>
+
+                    <div class="space-y-5 border-t border-charcoal pt-6 text-sm">
+                        <div class="flex items-start space-x-3.5">
+                            <i class="fa-brands fa-whatsapp text-gold text-lg mt-0.5"></i>
+                            <div>
+                                <p class="text-xs uppercase tracking-wider text-gold">WhatsApp &amp; Phone</p>
+                                <a href="https://wa.me/971554721018" target="_blank" rel="noopener noreferrer" class="text-ivory hover:text-gold transition-colors font-medium">
+                                    +971 55 472 1018
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-3.5">
+                            <i class="fa-solid fa-location-dot text-gold text-lg mt-0.5"></i>
+                            <div>
+                                <p class="text-xs uppercase tracking-wider text-gold">Salon Address</p>
+                                <p class="text-ivory/90 leading-relaxed">
+                                    Office 505, 2nd Street, Near Mall of the Emirates, Al Barsha First, Al Barsha, Dubai, UAE
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-3.5">
+                            <i class="fa-solid fa-compass text-gold text-lg mt-0.5"></i>
+                            <div>
+                                <p class="text-xs uppercase tracking-wider text-gold">Opening Hours &amp; Plus Code</p>
+                                <p class="text-ivory/90">Mon–Sun: 10:00 AM – 10:30 PM</p>
+                                <p class="text-ivory/70 text-xs mt-0.5">4683+FG Dubai, United Arab Emirates</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 p-8 sm:p-10 lg:p-12">
+                    <form id="appointment-form" class="space-y-5" novalidate>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <div>
+                                <label for="cust-name" class="block text-xs uppercase tracking-wider font-semibold text-deep-black mb-2">
+                                    Customer Name <span class="text-red-600">*</span>
+                                </label>
+                                <input type="text" id="cust-name" name="name" required placeholder="Enter your full name"
+                                       class="w-full px-4 py-3 rounded-xl bg-ivory/70 border border-gold-subtle focus:border-gold focus:bg-pure-white focus:outline-none text-sm text-deep-black transition-colors">
+                            </div>
+
+                            <div>
+                                <label for="cust-phone" class="block text-xs uppercase tracking-wider font-semibold text-deep-black mb-2">
+                                    Phone Number <span class="text-red-600">*</span>
+                                </label>
+                                <input type="tel" id="cust-phone" name="phone" required placeholder="+971 5X XXX XXXX"
+                                       class="w-full px-4 py-3 rounded-xl bg-ivory/70 border border-gold-subtle focus:border-gold focus:bg-pure-white focus:outline-none text-sm text-deep-black transition-colors">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="cust-service" class="block text-xs uppercase tracking-wider font-semibold text-deep-black mb-2">
+                                Preferred Service <span class="text-red-600">*</span>
+                            </label>
+                            <select id="cust-service" name="service" required
+                                    class="w-full px-4 py-3 rounded-xl bg-ivory/70 border border-gold-subtle focus:border-gold focus:bg-pure-white focus:outline-none text-sm text-deep-black transition-colors">
+                                <option value="" disabled selected>Select a service category</option>
+                                <option value="Hair Styling">Hair Styling</option>
+                                <option value="Hair Cutting">Hair Cutting</option>
+                                <option value="Hair Coloring">Hair Coloring</option>
+                                <option value="Hair Treatments">Hair Treatments</option>
+                                <option value="Hair Care">Hair Care</option>
+                                <option value="Other Beauty Services">Other Beauty Services</option>
+                            </select>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <div>
+                                <label for="cust-date" class="block text-xs uppercase tracking-wider font-semibold text-deep-black mb-2">
+                                    Preferred Date <span class="text-red-600">*</span>
+                                </label>
+                                <input type="date" id="cust-date" name="date" required
+                                       class="w-full px-4 py-3 rounded-xl bg-ivory/70 border border-gold-subtle focus:border-gold focus:bg-pure-white focus:outline-none text-sm text-deep-black transition-colors">
+                            </div>
+
+                            <div>
+                                <label for="cust-time" class="block text-xs uppercase tracking-wider font-semibold text-deep-black mb-2">
+                                    Preferred Time <span class="text-red-600">*</span>
+                                </label>
+                                <input type="time" id="cust-time" name="time" required
+                                       class="w-full px-4 py-3 rounded-xl bg-ivory/70 border border-gold-subtle focus:border-gold focus:bg-pure-white focus:outline-none text-sm text-deep-black transition-colors">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="cust-message" class="block text-xs uppercase tracking-wider font-semibold text-deep-black mb-2">
+                                Additional Message <span class="text-charcoal/50 font-normal">(Optional)</span>
+                            </label>
+                            <textarea id="cust-message" name="message" rows="3" placeholder="Share any specific requests or questions..."
+                                      class="w-full px-4 py-3 rounded-xl bg-ivory/70 border border-gold-subtle focus:border-gold focus:bg-pure-white focus:outline-none text-sm text-deep-black transition-colors"></textarea>
+                        </div>
+
+                        <div id="booking-feedback" class="hidden"></div>
+
+                        <button type="submit" class="w-full py-4 rounded-xl text-xs uppercase tracking-widest font-semibold btn-gold flex items-center justify-center space-x-2">
+                            <i class="fa-brands fa-whatsapp text-base"></i>
+                            <span>Book Your Appointment via WhatsApp</span>
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CONTACT & LOCATION SECTION ==================== -->
+    <section id="contact" class="py-20 lg:py-28 bg-ivory border-t border-gold-subtle">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto space-y-3 mb-14 reveal-section">
+                <span class="text-xs uppercase tracking-[0.28em] text-gold-dark font-semibold">Visit Us in Dubai</span>
+                <h2 class="font-luxury text-3xl sm:text-4xl lg:text-5xl font-semibold text-deep-black">
+                    Contact &amp; Location
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+                
+                <div class="lg:col-span-5 bg-pure-white p-8 sm:p-10 rounded-3xl border border-gold-subtle shadow-sm flex flex-col justify-between space-y-8 reveal-section">
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="font-luxury text-2xl sm:text-3xl font-semibold text-deep-black">Fantastic Touch Beauty Salon</h3>
+                            <p class="text-xs uppercase tracking-widest text-gold-dark mt-1">Al Barsha First &bull; Dubai, UAE</p>
+                        </div>
+
+                        <div class="space-y-4 text-sm text-charcoal/90">
+                            <div class="flex items-start space-x-3.5">
+                                <div class="w-9 h-9 rounded-full bg-ivory flex items-center justify-center text-gold-dark shrink-0 mt-0.5">
+                                    <i class="fa-regular fa-clock"></i>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-deep-black">Opening Hours</p>
+                                    <p>Monday – Sunday: 10:00 AM – 10:30 PM</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start space-x-3.5">
+                                <div class="w-9 h-9 rounded-full bg-ivory flex items-center justify-center text-gold-dark shrink-0 mt-0.5">
+                                    <i class="fa-solid fa-map-pin"></i>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-deep-black">Google Maps Plus Code</p>
+                                    <p>4683+FG Dubai, United Arab Emirates</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                            <a href="tel:+971554721018" class="py-3.5 px-4 rounded-xl bg-deep-black text-pure-white hover:bg-charcoal text-xs uppercase tracking-widest font-semibold flex items-center justify-center space-x-2 transition-colors">
+                                <i class="fa-solid fa-phone text-gold"></i>
+                                <span>Call Salon</span>
+                            </a>
+                            <a href="https://wa.me/971554721018" target="_blank" rel="noopener noreferrer" class="py-3.5 px-4 rounded-xl btn-gold text-xs uppercase tracking-widest font-semibold flex items-center justify-center space-x-2">
+                                <i class="fa-brands fa-whatsapp text-base"></i>
+                                <span>WhatsApp Us</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <form id="contact-inquiry-form" class="pt-6 border-t border-gold-subtle space-y-3" novalidate>
+                        <p class="text-xs uppercase tracking-widest font-semibold text-deep-black">Send a Quick Inquiry</p>
+                        <input type="text" id="inq-name" required placeholder="Your Name" class="w-full px-3.5 py-2.5 rounded-xl bg-ivory/70 border border-gold-subtle text-sm focus:border-gold focus:outline-none">
+                        <textarea id="inq-msg" rows="2" required placeholder="How can we assist you?" class="w-full px-3.5 py-2.5 rounded-xl bg-ivory/70 border border-gold-subtle text-sm focus:border-gold focus:outline-none"></textarea>
+                        <button type="submit" class="w-full py-2.5 rounded-xl border border-deep-black text-deep-black hover:bg-deep-black hover:text-gold text-xs uppercase tracking-widest font-semibold transition-colors">
+                            Send Inquiry via WhatsApp
+                        </button>
+                    </form>
+                </div>
+
+                <div class="lg:col-span-7 rounded-3xl overflow-hidden border border-gold-subtle shadow-sm bg-charcoal min-h-[420px] reveal-section">
+                    <iframe 
+                        title="Fantastic Touch Beauty Salon Location - 4683+FG Dubai"
+                        src="https://maps.google.com/maps?q=4683%2BFG%20Dubai%2C%20United%20Arab%20Emirates&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                        class="w-full h-full min-h-[420px] border-0"
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="bg-deep-black text-ivory border-t border-gold-subtle">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+                
+                <div class="space-y-4">
+                    <div>
+                        <p class="font-luxury text-2xl font-semibold tracking-wider text-pure-white">FANTASTIC TOUCH</p>
+                        <p class="text-[11px] uppercase tracking-[0.3em] text-gold">Beauty Salon &bull; Dubai</p>
+                    </div>
+                    <p class="text-sm text-ivory/70 leading-relaxed">
+                        Exceptional beauty and hair care in Al Barsha First, near Mall of the Emirates, Dubai.
+                    </p>
+                    <div class="flex items-center space-x-3 pt-2">
+                        <a href="#contact" aria-label="Instagram" title="Connect with us for Instagram handle" class="w-10 h-10 rounded-full border border-gold-subtle flex items-center justify-center text-gold hover:bg-gold hover:text-deep-black transition-colors">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="#contact" aria-label="Facebook" title="Connect with us for Facebook page" class="w-10 h-10 rounded-full border border-gold-subtle flex items-center justify-center text-gold hover:bg-gold hover:text-deep-black transition-colors">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                        <a href="https://wa.me/971554721018" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="w-10 h-10 rounded-full border border-gold-subtle flex items-center justify-center text-gold hover:bg-gold hover:text-deep-black transition-colors">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <h4 class="font-luxury text-xl text-pure-white font-semibold">Quick Links</h4>
+                    <ul class="space-y-2.5 text-sm text-ivory/75">
+                        <li><a href="#home" class="hover:text-gold transition-colors">Home</a></li>
+                        <li><a href="#about" class="hover:text-gold transition-colors">About Us</a></li>
+                        <li><a href="#services" class="hover:text-gold transition-colors">Services</a></li>
+                        <li><a href="#booking" class="hover:text-gold transition-colors">Book Appointment</a></li>
+                    </ul>
+                </div>
+
+                <div class="space-y-4">
+                    <h4 class="font-luxury text-xl text-pure-white font-semibold">Our Services</h4>
+                    <ul class="space-y-2.5 text-sm text-ivory/75">
+                        <li><a href="#services" onclick="selectServiceAndScroll('Hair Styling')" class="hover:text-gold transition-colors">Hair Styling</a></li>
+                        <li><a href="#services" onclick="selectServiceAndScroll('Hair Cutting')" class="hover:text-gold transition-colors">Hair Cutting</a></li>
+                        <li><a href="#services" onclick="selectServiceAndScroll('Hair Coloring')" class="hover:text-gold transition-colors">Hair Coloring</a></li>
+                        <li><a href="#services" onclick="selectServiceAndScroll('Hair Treatments')" class="hover:text-gold transition-colors">Hair Treatments</a></li>
+                        <li><a href="#services" onclick="selectServiceAndScroll('Hair Care')" class="hover:text-gold transition-colors">Hair Care</a></li>
+                        <li><a href="#services" onclick="selectServiceAndScroll('Other Beauty Services')" class="hover:text-gold transition-colors">Other Beauty Services</a></li>
+                    </ul>
+                </div>
+
+                <div class="space-y-4">
+                    <h4 class="font-luxury text-xl text-pure-white font-semibold">Contact Info</h4>
+                    <ul class="space-y-3 text-sm text-ivory/75">
+                        <li class="flex items-start space-x-2.5">
+                            <i class="fa-solid fa-location-dot text-gold mt-1"></i>
+                            <span>Office 505, 2nd Street, Near Mall of the Emirates, Al Barsha First, Al Barsha, Dubai, UAE</span>
+                        </li>
+                        <li class="flex items-center space-x-2.5">
+                            <i class="fa-regular fa-clock text-gold"></i>
+                            <span>Mon–Sun: 10:00 AM – 10:30 PM</span>
+                        </li>
+                        <li class="flex items-center space-x-2.5">
+                            <i class="fa-solid fa-compass text-gold"></i>
+                            <span>4683+FG Dubai, UAE</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="mt-12 pt-8 border-t border-charcoal flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-ivory/60">
+                <p>&copy; <span id="current-year"></span> Fantastic Touch Beauty Salon. All rights reserved.</p>
+                <p>Al Barsha First, Dubai, United Arab Emirates</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== LIGHTBOX MODAL ==================== -->
+    <div id="lightbox-modal" class="fixed inset-0 z-50 hidden bg-deep-black/95 backdrop-blur-sm flex items-center justify-center p-4">
+        <button type="button" onclick="closeLightbox()" aria-label="Close Lightbox" class="absolute top-6 right-6 w-12 h-12 rounded-full bg-charcoal text-gold hover:bg-gold hover:text-deep-black flex items-center justify-center text-xl transition-colors">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="max-w-4xl w-full flex flex-col items-center space-y-4">
+            <img id="lightbox-image" src="" alt="Enlarged Salon Photograph" class="max-h-[80vh] w-auto rounded-2xl border border-gold-subtle shadow-2xl object-contain">
+            <p id="lightbox-caption" class="font-luxury text-2xl text-pure-white tracking-wide"></p>
+        </div>
+    </div>
+
+    <!-- ==================== JAVASCRIPT & GSAP INTERACTIONS ==================== -->
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        const dateInput = document.getElementById('cust-date');
+        if (dateInput) {
+            const today = new Date().toISOString().split('T')[0];
+            dateInput.setAttribute('min', today);
+        }
+
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            const isHidden = mobileMenu.classList.contains('hidden');
+            if (isHidden) {
+                mobileMenu.classList.remove('hidden');
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-xmark');
+            } else {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
+            }
+        });
+
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
+            });
+        });
+
+        function selectServiceAndScroll(serviceName) {
+            const serviceSelect = document.getElementById('cust-service');
+            if (serviceSelect) {
+                serviceSelect.value = serviceName;
+            }
+            const bookingSection = document.getElementById('booking');
+            if (bookingSection) {
+                bookingSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        const lightboxModal = document.getElementById('lightbox-modal');
+        const lightboxImage = document.getElementById('lightbox-image');
+        const lightboxCaption = document.getElementById('lightbox-caption');
+
+        function openLightbox(imgId, caption) {
+            const sourceImg = document.getElementById(imgId);
+            if (!sourceImg) return;
+            lightboxImage.src = sourceImg.src;
+            lightboxCaption.textContent = caption;
+            lightboxModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightboxModal.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+
+        lightboxModal.addEventListener('click', (e) => {
+            if (e.target === lightboxModal) closeLightbox();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !lightboxModal.classList.contains('hidden')) {
+                closeLightbox();
+            }
+        });
+
+        const toggleEditBtn = document.getElementById('toggle-edit-services');
+        const editServicesLabel = document.getElementById('edit-services-label');
+        const resetServicesBtn = document.getElementById('reset-services-btn');
+        const editableServiceNodes = document.querySelectorAll('.editable-service');
+        let isEditMode = false;
+
+        editableServiceNodes.forEach(node => {
+            const key = node.getAttribute('data-key');
+            const saved = localStorage.getItem('ft_salon_' + key);
+            if (saved) node.textContent = saved;
+
+            node.addEventListener('input', () => {
+                localStorage.setItem('ft_salon_' + key, node.textContent.trim());
+            });
+        });
+
+        toggleEditBtn.addEventListener('click', () => {
+            isEditMode = !isEditMode;
+            document.body.classList.toggle('edit-mode', isEditMode);
+            editableServiceNodes.forEach(node => {
+                node.setAttribute('contenteditable', isEditMode ? 'true' : 'false');
+            });
+            editServicesLabel.textContent = isEditMode ? 'Done Editing Menu' : 'Enable Menu Editing';
+            resetServicesBtn.classList.toggle('hidden', !isEditMode);
+        });
+
+        resetServicesBtn.addEventListener('click', () => {
+            editableServiceNodes.forEach(node => {
+                const key = node.getAttribute('data-key');
+                localStorage.removeItem('ft_salon_' + key);
+            });
+            window.location.reload();
+        });
+
+        const WHATSAPP_NUMBER = '971554721018';
+        const appointmentForm = document.getElementById('appointment-form');
+        const bookingFeedback = document.getElementById('booking-feedback');
+
+        appointmentForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('cust-name').value.trim();
+            const phone = document.getElementById('cust-phone').value.trim();
+            const service = document.getElementById('cust-service').value.trim();
+            const date = document.getElementById('cust-date').value.trim();
+            const time = document.getElementById('cust-time').value.trim();
+            const message = document.getElementById('cust-message').value.trim();
+
+            if (!name || !phone || !service || !date || !time) {
+                bookingFeedback.className = 'p-4 rounded-xl text-sm bg-red-50 border border-red-200 text-red-800';
+                bookingFeedback.innerHTML = '<i class="fa-solid fa-circle-exclamation mr-2"></i>Please complete all required fields (Name, Phone, Service, Date, and Time) before booking.';
+                bookingFeedback.classList.remove('hidden');
+                return;
+            }
+
+            const formattedLines = [
+                'Hello Fantastic Touch Beauty Salon,',
+                'I would like to request an appointment:',
+                '',
+                `• Name: ${name}`,
+                `• Phone: ${phone}`,
+                `• Preferred Service: ${service}`,
+                `• Preferred Date: ${date}`,
+                `• Preferred Time: ${time}`
+            ];
+
+            if (message) {
+                formattedLines.push(`• Additional Notes: ${message}`);
+            }
+
+            formattedLines.push('', 'Thank you!');
+
+            const encodedMessage = encodeURIComponent(formattedLines.join('\n'));
+            const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
+
+            bookingFeedback.className = 'p-4 rounded-xl text-sm bg-ivory border border-gold text-deep-black';
+            bookingFeedback.innerHTML = `<i class="fa-brands fa-whatsapp text-green-600 mr-2"></i>Opening WhatsApp with your pre-filled appointment request. If it does not open automatically, <a href="${whatsappUrl}" target="_blank" rel="noopener noreferrer" class="underline font-semibold text-gold-dark">click here to send</a>.`;
+            bookingFeedback.classList.remove('hidden');
+
+            window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+        });
+
+        const contactInquiryForm = document.getElementById('contact-inquiry-form');
+        contactInquiryForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const inqName = document.getElementById('inq-name').value.trim();
+            const inqMsg = document.getElementById('inq-msg').value.trim();
+            if (!inqName || !inqMsg) return;
+
+            const text = encodeURIComponent(`Hello Fantastic Touch Beauty Salon,\nMy name is ${inqName}.\n\nInquiry: ${inqMsg}`);
+            window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${text}`, '_blank', 'noopener,noreferrer');
+        });
+
+        window.addEventListener('load', () => {
+            if (typeof gsap !== 'undefined') {
+                gsap.registerPlugin(ScrollTrigger);
+
+                gsap.from('.hero-animate', {
+                    y: 28,
+                    opacity: 0,
+                    duration: 0.9,
+                    stagger: 0.14,
+                    ease: 'power3.out'
+                });
+
+                gsap.utils.toArray('.reveal-section').forEach((elem) => {
+                    gsap.from(elem, {
+                        scrollTrigger: {
+                            trigger: elem,
+                            start: 'top 86%',
+                            once: true
+                        },
+                        y: 26,
+                        opacity: 0,
+                        duration: 0.75,
+                        ease: 'power2.out'
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>
